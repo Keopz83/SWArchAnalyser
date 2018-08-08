@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SoftArch
-{
-    public class Class1
-    {
+namespace SoftArch.CsModels {
+    
+    interface ICsGraphNode {
+
+        IEnumerable<CsGraphEdge> Edges { get; }
     }
 }

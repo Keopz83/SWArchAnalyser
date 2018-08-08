@@ -8,6 +8,8 @@ namespace TestProject1
 {
     public class Class1
     {
-
+        public Class2 Method1() {
+            return new Class2();
+        }
     }
 }
