@@ -40,6 +40,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="TestProject1">
+      <HintPath>..\TestSolution\TestProject1\bin\Debug\TestProject1.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SolutionAnalyserTests.cs" />

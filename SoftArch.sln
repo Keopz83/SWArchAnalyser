@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftArch._Console", "SoftAr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftArch._Tests", "SoftArch._Tests\SoftArch._Tests.csproj", "{DFD21919-00A7-4861-BFDD-3E8EE65E794E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchViewer", "ArchViewer\ArchViewer.csproj", "{2BF156D9-A67E-44B9-B02B-49BF25C79F8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DFD21919-00A7-4861-BFDD-3E8EE65E794E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFD21919-00A7-4861-BFDD-3E8EE65E794E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFD21919-00A7-4861-BFDD-3E8EE65E794E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BF156D9-A67E-44B9-B02B-49BF25C79F8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BF156D9-A67E-44B9-B02B-49BF25C79F8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BF156D9-A67E-44B9-B02B-49BF25C79F8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BF156D9-A67E-44B9-B02B-49BF25C79F8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

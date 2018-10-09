@@ -7,12 +7,12 @@ namespace SoftArch.CsModels {
 
         public string Type { get; set; }
 
+        public string Access { get; set; }
+
         public override string ToString() {
 
-            if (Type != null) {
-                return $"P: {Type} {Name}";
-            }
-            return Name;
+            return $"P: {Access} {Type} {Name}";
+
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SoftArch.CsModels {
@@ -15,6 +16,11 @@ namespace SoftArch.CsModels {
         public IEnumerable<CsProperty> Properties = new List<CsProperty>();
 
         public IEnumerable<CsMethod> Methods = new List<CsMethod>();
+
+        public CsMethod GetMethod(string methodName) {
+
+            return Methods.Where(x => x.Name.Equals(methodName)).FirstOrDefault();
+        }
 
         public override string ToString() {
 

@@ -8,6 +8,11 @@ namespace SoftArch.CsModels {
 
     public class CsSolution {
 
-        public IEnumerable<CsProject> Projects;
+        public IEnumerable<CsProject> Projects = new List<CsProject>();
+
+        public CsProject GetProject(string projectName) {
+
+            return Projects.Where(x => x.Name.Equals(projectName)).FirstOrDefault();
+        }
     }
 }

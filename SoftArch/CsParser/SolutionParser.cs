@@ -74,7 +74,7 @@ namespace SoftArch
                     .Select(x => new CsProperty() { Name = x.Identifier.ToString(), Type = x.Type.ToString()});
 
                 var methods = classTree.Members.OfType<MethodDeclarationSyntax>()
-                    .Select(x => new CsMethod() { Name = x.Identifier.ToString(), Type = x.ReturnType.ToString() });
+                    .Select(x => ParseMethod(x));
 
                 var csClass = new CsClass() {
                     Name = classTree.Identifier.ToString(),
@@ -90,6 +90,15 @@ namespace SoftArch
             return csFileClasses;
         }
 
+        private static CsMethod ParseMethod(MethodDeclarationSyntax x) {
+
+            var method = new CsMethod() {
+                Name = x.Identifier.ToString(),
+                Type = x.ReturnType.ToString()
+            };
+
+            return method;
+        }
     }
 
 }
