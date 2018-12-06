@@ -73,20 +73,26 @@ namespace SoftArch._Tests {
             CsClass csClass = project.GetClass(nameof(Class2));
             var csProps = csClass.Properties;
 
-            Assert.AreEqual(3, csProps.Count(), "Unexpected number of properties.");
+            Assert.AreEqual(2, csProps.Count(), "Unexpected number of properties.");
 
 
             CsProperty csProp = csProps.First();
 
-            Assert.AreEqual(nameof(Class2.MethodInternalExternalVars), csProp.Name, "Unexpected property name.");
-            Assert.AreEqual(nameof(Class2.MethodInternalExternalVars), csProp.Type, "Unexpected property type.");
-            Assert.AreEqual("public", csProp.Access, "Unexpected property access.");
+            Assert.AreEqual(nameof(Class2.RefToClass1), csProp.Name, "Unexpected property name.");
+            Assert.AreEqual(typeof(Class1).Name, csProp.Type, "Unexpected property type.");
+            
+            //TODO: retrieve property access
+            //Assert.AreEqual("public", csProp.Access, "Unexpected property access.");
         }
 
+        [TestMethod] [Ignore]
+        public void Retrieves_type_fields() {
+            //TODO
+        }
 
-        [TestMethod]
+        [TestMethod] [Ignore]
         public void Retrieves_method_variables() {
-
+            //TODO
         }
 
 
