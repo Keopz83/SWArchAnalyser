@@ -26,6 +26,12 @@ namespace SoftArch
             var projects = new List<CsProject>();
             foreach (var projectFile in projectFiles) {
                 
+                if(!Path.GetExtension(projectFile.AbsolutePath).Equals(".csproj")){
+                    //TODO: support recursive folder search
+                    Console.WriteLine($"Skipping path '{projectFile.AbsolutePath}'...");
+                    continue;
+                }
+
                 ProjectRootElement projectToParse = ProjectRootElement.Open(projectFile.AbsolutePath);
                 var csProject = new CsProject() { Name = projectFile.ProjectName };
                 csProject.Classes = ParseProjectRoot(projectFile, projectToParse);
@@ -67,23 +73,28 @@ namespace SoftArch
 
             foreach (var classTree in namespaceTree.Members.OfType<ClassDeclarationSyntax>()) {
 
+                if(classTree.BaseList?.Types == null)
+                {
+                    continue;
+                }
 
-                var baseType = classTree.BaseList?.Types.OfType<SimpleBaseTypeSyntax>().SingleOrDefault();
+                foreach (var baseType in classTree.BaseList?.Types.OfType<SimpleBaseTypeSyntax>()) {
 
-                var props = classTree.Members.OfType<PropertyDeclarationSyntax>()
-                    .Select(x => new CsProperty() { Name = x.Identifier.ToString(), Type = x.Type.ToString()});
+                    var props = classTree.Members.OfType<PropertyDeclarationSyntax>()
+                        .Select(x => new CsProperty() { Name = x.Identifier.ToString(), Type = x.Type.ToString() });
 
-                var methods = classTree.Members.OfType<MethodDeclarationSyntax>()
-                    .Select(x => ParseMethod(x));
+                    var methods = classTree.Members.OfType<MethodDeclarationSyntax>()
+                        .Select(x => ParseMethod(x));
 
-                var csClass = new CsClass() {
-                    Name = classTree.Identifier.ToString(),
-                    ParentName = baseType?.Type.ToString(),
-                    Properties = props,
-                    Methods = methods
-                };
+                    var csClass = new CsClass() {
+                        Name = classTree.Identifier.ToString(),
+                        ParentName = baseType?.Type.ToString(),
+                        Properties = props,
+                        Methods = methods
+                    };
 
-                csFileClasses.Add(csClass);
+                    csFileClasses.Add(csClass);
+                }
 
             }
 
