@@ -8,6 +8,16 @@
         Title="Software Analyser" Height="450" Width="800">
     
     <Grid>
+
+        <!--<ListBox ItemsSource="{Binding Projects}">
+            
+            
+            
+        </ListBox>-->
+
+        <Canvas x:Name="canvas1">
+            
+        </Canvas>
         
     </Grid>
     
